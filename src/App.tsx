@@ -1,25 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Example from "./components/reactQuery/Example";
+import {QueryClient, QueryClientProvider} from "react-query";
+import {ReactQueryDevtools} from "react-query/devtools";
+import QuickStart from "./components/reactQuery/QuickStart";
+import Pagination from "./components/reactQuery/Pagination";
+import InfiniteScroll from "./components/reactQuery/InfiniteScroll";
+const queryClient = new QueryClient();
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools/>
+        {/*<Example/>*/}
+        {/*<QuickStart/>*/}
+        {/*<Pagination/>*/}
+        <InfiniteScroll/>
+    </QueryClientProvider>
   );
 }
 
